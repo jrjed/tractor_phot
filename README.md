@@ -72,4 +72,4 @@ You can run a test to make sure things are working properly:
 $ cd tractor_phot
 $ python test.py
 ```
-If working correctly, "TEST SUCESSFUL!" should print when done running. Additionally, this should write a output FITS table and FITS images to the "output/example/" directory.
+If working correctly, "TEST SUCESSFUL!" should print when done running (it should take a couple moments). Additionally, this should write a output FITS table and FITS images to the "output/example/" directory.
