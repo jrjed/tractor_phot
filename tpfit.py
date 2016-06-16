@@ -253,9 +253,6 @@ def main():
             break
 
     if save_params:
-        tb.remove_existing('test_output.fits',
-                           os.path.join(tconfig.path2output, output_directory),
-                           verbose=False)
         priors = priors[:iterations]
         priors['flux'] = fluxout
         priors['residual_rms'] = rms
@@ -271,8 +268,9 @@ def main():
 
         # Save/overwrite output table
         print 'Saving/overwriting tracphot_output.fits'
-        tb.remove_existing('tracphot_output.fits',
-                           os.path.join(tconfig.path2output, output_directory),
+        tb.remove_existing(os.path.join(tconfig.path2output,
+                                        output_directory,
+                                        'tracphot_output.fits'),
                            verbose=False)
 
         priors.write(os.path.join(tconfig.path2output,

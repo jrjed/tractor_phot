@@ -142,14 +142,15 @@ def read_image(image_path, extension=0):
     return image, header
 
 
-def remove_existing(file_path verbose=True):
+def remove_existing(file_path, verbose=True):
     '''
     Overwrites file in the save directory that has a file name the same as
     the given filename
     '''
-    files = os.listdir(os.path.dirname(file_path)
+    filename = os.path.basename(file_path)
+    files = os.listdir(os.path.dirname(file_path))
     if filename in files:
-        os.remove(filename)
+        os.remove(file_path)
     if verbose:
         print 'Removing ', str(filename)
     return
@@ -185,7 +186,7 @@ def subimage(image_path, ra, dec, boxsize, showsub=False):
                                dec=dec_center,
                                xsize=boxsize / 3600)
     subimage, subheader = read_image('temp.fits')
-    remove_existing('temp.fits', os.getcwd(), verbose=False)
+    remove_existing(os.path.join(os.getcwd(),'temp.fits'), verbose=False)
 
     if showsub:
         pdict = dict(interpolation='nearest',
