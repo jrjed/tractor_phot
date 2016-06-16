@@ -276,5 +276,8 @@ def main():
     end = time.time()
     print '\n{} minutes to complete'.format(round((end-start)/60, 1))
 
+    if input_file == 'example_input.py':
+        print 'Test Sucessful'
+
 if __name__ == '__main__':
     main()
