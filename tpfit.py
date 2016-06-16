@@ -47,8 +47,8 @@ class ScImage(object):
 
     def subimage(self, ra, dec):
         '''
-        Returns a subimage and subheader. Boxsize should be given in arcsec.
-        Uses Montage + montage_wrapper.
+        Returns a subimage and subheader. Boxsize should be given in arcsec
+        Uses Montage + montage_wrapper
         '''
 
         subimage, subheader = tb.subimage(self.image_path,

@@ -18,7 +18,7 @@ from astropy.coordinates import SkyCoord
 
 def adxy(header, ra, dec):
     '''
-    Converts RA and Dec to x and y pixel positions.
+    Converts RA and Dec to x and y pixel positions
     '''
     ra = np.array(ra)
     dec = np.array(dec)
@@ -29,7 +29,7 @@ def adxy(header, ra, dec):
 def angsep(ra0, dec0, ra, dec):
     '''
     Gives angular separation between the input position and the position after
-    fitting in arcsec. Note: input should be in degrees.
+    fitting in arcsec. Note: input should be in degrees
     '''
     ra0 = np.array(ra0)
     dec0 = np.array(dec0)
@@ -43,10 +43,10 @@ def angsep(ra0, dec0, ra, dec):
 def data2table(arrays=[], names=[], units=[], filename='d2table.fits'):
     '''
     Given a list of arrays, names and units, constructs table and writes
-    to file. Units should be given as astropy.units.
+    to file. Units (optional) should be given as astropy.units.
     If extenstion of filename is .dat (.fits) it will be saved as an
     ascii (FITS) table.
-    Returns the table that it saved to file.
+    Returns the table that it saved to file
     '''
     t = Table()
     if len(units) > 0:
@@ -66,6 +66,9 @@ def data2table(arrays=[], names=[], units=[], filename='d2table.fits'):
 
 
 def get_pixscale(header):
+    '''
+    Retrieves pixelscale in arcsec/pix from the image header
+    '''
     pixscale = 0
     keys = header.keys()
     for key in keys:
@@ -84,7 +87,7 @@ def get_pixscale(header):
 def nmatch(ra0, dec0, ra, dec, nneb):
     '''
     Returns indices of the nth nearest positional counterpart and the angular
-    separation between them.
+    separation between them
     '''
     ra0 = np.array(ra0)
     dec0 = np.array(dec0)
@@ -100,7 +103,7 @@ def nmatch(ra0, dec0, ra, dec, nneb):
 def matching(ra0, dec0, ra, dec):
     '''
     Returns indices of nearest positional counterpart and the angular
-    separation between them.
+    separation between them
     '''
     indices, angseps = nmatch(ra0, dec0, ra, dec, 1)
     return indices, angseps
@@ -108,7 +111,7 @@ def matching(ra0, dec0, ra, dec):
 
 def progress_bar(iterator, array, barLen=50):
     '''
-    Displays progress bars for "for" loops.
+    Displays progress bars for "for" loops
     Input: i, array/list being looped over, optional: barLen = integer
     '''
     fraction_done = float(iterator + 1) / len(array)
@@ -127,6 +130,9 @@ def progress_bar(iterator, array, barLen=50):
 
 
 def read_image(image_path, extension=0):
+    '''
+    Reads in an image and corresponding header
+    '''
     hdu = fits.open(image_path)
     image, header = hdu[extension].data, hdu[extension].header
     # To save some memory close the hdulist
@@ -137,7 +143,7 @@ def read_image(image_path, extension=0):
 def remove_existing(filename, save_directory, verbose=True):
     '''
     Overwrites file in the save directory that has a file name the same as
-    the given filename.
+    the given filename
     '''
     files = os.listdir(save_directory)
     if filename in files:
@@ -150,7 +156,7 @@ def remove_existing(filename, save_directory, verbose=True):
 def res_sum(x0, y0, chi, half_fwhm_pix):
     '''
     Sums the residual flux in the beam around the position at which extraction
-    took place.
+    took place
     '''
     x_floor, y_floor = int(x0 + 0.5), int(y0 + 0.5)
     res = chi[y_floor - half_fwhm_pix: y_floor + half_fwhm_pix + 1,
@@ -161,7 +167,7 @@ def res_sum(x0, y0, chi, half_fwhm_pix):
 
 def subimage(image_path, ra, dec, boxsize, showsub=False):
     '''
-    Returns a subimage and subheader. Boxsize should be given in arcsec.
+    Returns a subimage and subheader. Boxsize should be given in arcsec
     This is to create a temporary subimage of a source for a quick view. To
     save the subimage, do it externally using
     astropy.io.fits.PrimaryHDU.writeto or montage_wrapper.mSubimage.
@@ -211,7 +217,7 @@ def stamps2file(images=[], headers=[], names=[], file_path=None):
 
 def xyad(header, x, y):
     '''
-    Converts x and y pixel positions to RA and Dec.
+    Converts x and y pixel positions to RA and Dec
     '''
     x = np.array(x)
     y = np.array(y)
