@@ -1,6 +1,6 @@
 '''
-A module containing some functions I found useful for some things.
-A few of which are used in the main fitting code.
+A module containing some functions I found useful.
+A few of which are used in the main fitting code
 '''
 from __future__ import division
 import os
