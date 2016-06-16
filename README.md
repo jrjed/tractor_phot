@@ -66,17 +66,6 @@ $ cd tractor_phot
 $ python tpfit.py example_input.py
 ```
 
-There is also a script for comparing the extracted photometry to the catalog (i.e. priors) photometry run from the command line as follows:
-```
-$ cd tractor_phot
-$ python compare.py example_priors.fits example_output.fits
-
-or
-$ cd tractor_phot
-$ python compare.py -pretty example_priors.fits example_output.fits
-```
-where the latter will import seaborn for nicer looking plots.
-
 ##Tests##
 You can run a test to make sure things are working properly:
 ```
