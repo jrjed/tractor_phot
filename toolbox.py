@@ -26,7 +26,7 @@ def adxy(header, ra, dec):
     return x, y
 
 
-def angsep(ra0, dec0, ra, dec):
+def angsep(ra0, dec0, ra, dec, frame='icrs'):
     '''
     Gives angular separation between the input position and the position after
     fitting in arcsec. Note: input should be in degrees
@@ -35,8 +35,8 @@ def angsep(ra0, dec0, ra, dec):
     dec0 = np.array(dec0)
     ra = np.array(ra)
     dec = np.array(dec)
-    c1 = SkyCoord(ra0 * u.deg, dec0 * u.deg, frame='icrs')
-    c2 = SkyCoord(ra * u.deg, dec * u.deg, frame='icrs')
+    c1 = SkyCoord(ra0 * u.deg, dec0 * u.deg, frame=frame)
+    c2 = SkyCoord(ra * u.deg, dec * u.deg, frame=frame)
     return c1.separation(c2).value * 3600.
 
 
@@ -84,28 +84,30 @@ def get_pixscale(header):
     return pixscale
 
 
-def nmatch(ra0, dec0, ra, dec, nneb):
+def nmatch(ra0, dec0, ra, dec, nneb, frame='icrs'):
     '''
     Returns indices of the nth nearest positional counterpart and the angular
     separation between them
+    Assumes both positions are in the same frame
     '''
     ra0 = np.array(ra0)
     dec0 = np.array(dec0)
     ra = np.array(ra)
     dec = np.array(dec)
-    reference_cat = SkyCoord(ra0 * u.deg, dec0 * u.deg, frame='icrs')
-    other_cat = SkyCoord(ra * u.deg, dec * u.deg, frame='icrs')
+    reference_cat = SkyCoord(ra0 * u.deg, dec0 * u.deg, frame=frame)
+    other_cat = SkyCoord(ra * u.deg, dec * u.deg, frame=frame)
     indices, angseps, physeps = reference_cat.match_to_catalog_sky(
         other_cat, nneb)
     return indices, angseps.to(u.arcsec).value
 
 
-def matching(ra0, dec0, ra, dec):
+def matching(ra0, dec0, ra, dec, frame='icrs'):
     '''
     Returns indices of nearest positional counterpart and the angular
     separation between them
+    Assumes both positions are in the same frame
     '''
-    indices, angseps = nmatch(ra0, dec0, ra, dec, 1)
+    indices, angseps = nmatch(ra0, dec0, ra, dec, 1, frame=frame)
     return indices, angseps
 
 
@@ -140,14 +142,14 @@ def read_image(image_path, extension=0):
     return image, header
 
 
-def remove_existing(filename, save_directory, verbose=True):
+def remove_existing(file_path verbose=True):
     '''
     Overwrites file in the save directory that has a file name the same as
     the given filename
     '''
-    files = os.listdir(save_directory)
+    files = os.listdir(os.path.dirname(file_path)
     if filename in files:
-        os.remove(os.path.join(save_directory, filename))
+        os.remove(filename)
     if verbose:
         print 'Removing ', str(filename)
     return
