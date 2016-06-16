@@ -43,7 +43,7 @@ class ScImage(object):
         if boxsize is None:
             self.boxsize = np.ceil(3 * self.fwhm)
         else:
-            self.boxsize = boxsize #size of subimage in arcsec to be cutout
+            self.boxsize = boxsize  # size of subimage in arcsec to be cutout
 
     def subimage(self, ra, dec):
         '''
@@ -154,7 +154,7 @@ def pointsource_fit(xsub, ysub, fluxsub, TractorImage):
 def main():
 
     # Timing
-    start= time.time()
+    start = time.time()
 
     # Take in parameters from input file
     input_file = str(os.path.join(tconfig.path2input, sys.argv[1]))
@@ -267,7 +267,7 @@ def main():
                         'flux',
                         'flux_err',
                         'residual_rms',
-                        'mdiff'] #reorder the table for neatness
+                        'mdiff']  # reorder the table for neatness
 
         # Save/overwrite output table
         print 'Saving/overwriting tracphot_output.fits'
