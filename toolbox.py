@@ -177,7 +177,7 @@ def subimage(image_path, ra, dec, boxsize, showsub=False):
     '''
     _, header = read_image(image_path)
     x, y = adxy(header, ra, dec)
-    # Center subimage on pixel source is located in (better centering)
+    # Center subimage on the pixel the source is located in (better centering)
     xpix, ypix = int(x + 0.5), int(y + 0.5)
     ra_center, dec_center = xyad(header, xpix, ypix)
     montage.commands.mSubimage(in_image=image_path,
