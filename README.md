@@ -79,6 +79,7 @@ where the latter will import seaborn for nicer looking plots.
 ##Tests##
 You can run a test to make sure things are working properly:
 ```
+$ cd tractor_phot
 $ sh test.sh
 ```
 If working correctly, "TEST SUCESSFUL!" should print when done running. Additionally, this should write a output FITS table and FITS images to the "output/example/" directory.
