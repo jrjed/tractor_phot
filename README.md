@@ -3,7 +3,7 @@
 tractor_phot is an implementation of [the Tractor](https://github.com/dstndstn/tractor) for PSF fitting unresolved sources. It is merely a directory from which the main fitting script runs. The code fits a given PSF model to the given coordinates. You can clone this repo and use as is and/or mangle it to your liking.
 
 ## Getting Started ##
-tractor_phot is simply a *Python* fitting script that is run out of the directory. Most of the installation lies in aquiring the required libraries.
+tractor_phot is simply a *Python 2.7* fitting script that is run out of the directory. Most of the installation lies in aquiring the required libraries.
 
 Simply clone the repo:
 
@@ -81,4 +81,4 @@ You can run a test to make sure things are working properly:
 ```
 $ sh test.sh
 ```
-If working correctly, this should write a output FITS table and FITS images to the "output/example/" directory.
+If working correctly, "TEST SUCESSFUL!" should print when done running. Additionally, this should write a output FITS table and FITS images to the "output/example/" directory.
