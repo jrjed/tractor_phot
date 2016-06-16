@@ -5,6 +5,7 @@ A few of which are used in the main fitting code
 from __future__ import division
 import os
 import sys
+
 import numpy as np
 import astropy.units as u
 import matplotlib.pyplot as plt
