@@ -5,11 +5,12 @@ tractor_phot is an implementation of [the Tractor](https://github.com/dstndstn/t
 ## Getting Started ##
 tractor_phot is simply a *Python 2.7* fitting script that is run out of the directory. Most of the installation lies in aquiring the required libraries.
 
-Simply clone the repo:
+Simply clone the repo,
 
 ```
 git clone https://github.com/jrjed/tractor_phot
 ```
+and add the tractor_phot directory to your PYTHONPATH.
 
 ### Requirements ##
 ***[the Tractor](https://github.com/dstndstn/tractor) (see installation instructions on GitHub)***
