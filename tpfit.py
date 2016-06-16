@@ -269,15 +269,21 @@ def main():
                         'residual_rms',
                         'mdiff'] #reorder the table for neatness
 
+        # Save/overwrite output table
+        print 'Saving/overwriting tracphot_output.fits'
+        tb.remove_existing('tracphot_output.fits',
+                           os.path.join(tconfig.path2output, output_directory),
+                           verbose=False)
+
         priors.write(os.path.join(tconfig.path2output,
                                   output_directory,
                                   'tracphot_output.fits'))
 
     end = time.time()
-    print '\n{} minutes to complete'.format(round((end-start)/60, 1))
+    print '{} minutes to complete'.format(round((end-start)/60, 1))
 
-    if input_file == 'example_input.py':
-        print 'Test Sucessful'
+    if sys.argv[1] == 'example_input.py':
+        print 'TEST SUCESSFUL!'
 
 if __name__ == '__main__':
     main()
