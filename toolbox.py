@@ -121,6 +121,8 @@ def progress_bar(iterator, array, barLen=50):
     sys.stdout.write('Progress ')
     sys.stdout.write("[ %s ] %.0f %%" % (progress, fraction_done * 100))
     sys.stdout.flush()
+    if iterator == len(array)-1:
+        print " "
 
 
 def read_image(image_path, extension=0):
