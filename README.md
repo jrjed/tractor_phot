@@ -25,7 +25,7 @@ and add the tractor_phot directory to your PYTHONPATH.
 
 ###1.) Input Files ###
 An input file provides the logistical information that the code needs to run. 
-An example input file ("example_input.py") can be found in the "input_files" directory. It is here that the user will provide the following info:
+An example input file ("example_input.py") can be found in the "input_files/" directory. It is here that the user will provide the following info:
 
 ***Science Image Properties***  
 image_filename: filename of science image located in the "images/" directory  
