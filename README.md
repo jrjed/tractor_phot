@@ -8,7 +8,7 @@ tractor_phot is simply a directory from which the main fitting script runs. The 
 Simply clone the repo,
 
 ```
-git clone https://github.com/jrjed/tractor_phot
+$ git clone https://github.com/jrjed/tractor_phot
 ```
 and add the tractor_phot directory to your PYTHONPATH.
 
