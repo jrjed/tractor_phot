@@ -1,9 +1,9 @@
 
 # tractor_phot #
-tractor_phot is an implementation of [the Tractor](https://github.com/dstndstn/tractor) for PSF fitting unresolved sources. It is merely a directory from which the main fitting script runs. The code fits a given PSF model to the given coordinates. You can clone this repo and use as is and/or mangle it to your liking.
+tractor_phot is an implementation of [the Tractor](https://github.com/dstndstn/tractor) for PSF fitting unresolved sources. You can clone this repo and use as is and/or mangle it to your liking.
 
 ## Getting Started ##
-tractor_phot is simply a *Python 2.7* fitting script that is run out of the directory. Most of the installation lies in aquiring the required libraries.
+tractor_phot is simply a directory from which the main fitting script runs. The code fits a given PSF model to the given coordinates.  Most of the installation lies in aquiring the required libraries.
 
 Simply clone the repo,
 
@@ -12,8 +12,10 @@ git clone https://github.com/jrjed/tractor_phot
 ```
 and add the tractor_phot directory to your PYTHONPATH.
 
-### Requirements ##
-***[the Tractor](https://github.com/dstndstn/tractor) (see installation instructions on GitHub)***
+### Requirements ###
+The code requires *Python 2.7+*, as well as a few additional packages.
+
+***[the Tractor](https://github.com/dstndstn/tractor)***
 
 ***[astropy](https://github.com/astropy/astropy)***
 
@@ -41,7 +43,7 @@ FWHM: instrument FWHM in arcseconds
 psf_filename (optional): filename of FITS image in "psfs/" to be used as PSF model. The PSF image should be rotated and interpolated to the header specifications of the science image. If not given (i.e. set to None), a circular Gaussian with the given FWHM will be used as the PSF model. See the example PSF in the "psfs/" directory.
 
 ***Fitting Logistics***  
-iterations: number of sources to be fit e.g. if you just want to fit the first 100 sources set to 100. Set to 'all' for all prior sources to be fit  
+iterations: number of sources to be fit e.g. if you just want to fit the first 100 sources (that is, if your primary sources are the first 100 sources in your priors catalog and the rest are peripheral sources) set to 100. Set to 'all' for all prior sources to be fit and included in the output.  
 boxsize: length of side of subimages in arcsec. If set to None, the default is 3 X FWHM.  
 
 ***Ouput***  
