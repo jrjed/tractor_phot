@@ -1,6 +1,6 @@
 
 # tractor_phot #
-tractor_phot is an implementation of [the Tractor](https://github.com/dstndstn/tractor) for PSF fitting unresolved sources. You can clone this repo and use as is and/or mangle it to your liking.
+tractor_phot is an implementation of [the Tractor](https://github.com/dstndstn/tractor) for PSF fitting unresolved sources. In general, the Tractor uses prior knowledge about the images and sources to optimize the likelihood for catalog properties. The code proceeds by rendering the source model convolved with the image PSF model and performs a least squares fit to the image data. You can clone this repo and use as is and/or mangle it to your liking.
 
 ## Getting Started ##
 tractor_phot is simply a directory from which the main fitting script runs. The code fits a given PSF model to the given coordinates.  Most of the installation lies in aquiring the required libraries.
